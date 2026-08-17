@@ -1,4862 +1,2752 @@
-<!-- =========================================================
-     SAMAIA GEORGIAN RESTAURANT
-     COMPLETE WORDPRESS CUSTOM HTML WEBSITE
-     ========================================================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="samaia-site">
+<title>NEXORA Store — Modern E-Commerce</title>
+
+<meta name="description"
+content="NEXORA Store — a premium modern e-commerce website concept.">
 
 <style>
 
 /* =========================================================
-   SAMAIA GLOBAL STYLES
-   ========================================================= */
+   RESET
+========================================================= */
 
-.samaia-site {
-  --burgundy: #651d2b;
-  --burgundy-dark: #300c14;
-  --burgundy-deep: #200a0f;
-  --burgundy-light: #8b3947;
-  --gold: #c9a96a;
-  --gold-light: #e3c88c;
-  --cream: #f5efe5;
-  --cream-dark: #e7dccb;
-  --white: #fffdf9;
-  --dark: #171313;
-  --gray: #756d68;
-  --border: rgba(101, 29, 43, 0.14);
-
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-
-  color: var(--dark);
-  background: var(--cream);
-
-  font-family:
-    "Inter",
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
-
-  box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.samaia-site *,
-.samaia-site *::before,
-.samaia-site *::after {
-  box-sizing: border-box;
+html {
+    scroll-behavior: smooth;
 }
 
-.samaia-site a {
-  color: inherit;
-  text-decoration: none;
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: #f7f7f5;
+    color: #111;
+    line-height: 1.5;
 }
 
-.samaia-site button,
-.samaia-site input,
-.samaia-site select,
-.samaia-site textarea {
-  font: inherit;
+button,
+input,
+select {
+    font: inherit;
 }
 
-.samaia-container {
-  width: min(1180px, calc(100% - 48px));
-  margin: 0 auto;
+button {
+    cursor: pointer;
+    border: 0;
 }
 
-.samaia-display,
-.samaia-site h1,
-.samaia-site h2,
-.samaia-site h3 {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-  font-weight: 400;
+img {
+    display: block;
+    width: 100%;
 }
 
-.samaia-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-
-  color: var(--gold);
-
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+a {
+    color: inherit;
+    text-decoration: none;
 }
-
-.samaia-eyebrow::before,
-.samaia-eyebrow::after {
-  content: "";
-
-  width: 30px;
-  height: 1px;
-
-  background: currentColor;
-  opacity: 0.7;
-}
-
 
 /* =========================================================
-   NAVIGATION
-   ========================================================= */
+   VARIABLES
+========================================================= */
 
-.samaia-header {
-  position: absolute;
-  z-index: 100;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-
-  color: white;
-
-  transition:
-    background 0.3s ease,
-    box-shadow 0.3s ease;
+:root {
+    --black: #111111;
+    --white: #ffffff;
+    --gray: #6d6d6d;
+    --light: #f7f7f5;
+    --border: #e4e4e0;
+    --accent: #ff5a36;
+    --accent-dark: #e74727;
+    --radius: 18px;
+    --shadow: 0 20px 60px rgba(0,0,0,.08);
 }
 
-.samaia-header.is-scrolled {
-  position: fixed;
+/* =========================================================
+   HEADER
+========================================================= */
 
-  background:
-    rgba(32, 10, 15, 0.97);
-
-  backdrop-filter: blur(15px);
-
-  box-shadow:
-    0 10px 35px rgba(0,0,0,0.2);
+.top-bar {
+    background: var(--black);
+    color: white;
+    text-align: center;
+    padding: 9px 15px;
+    font-size: 12px;
+    letter-spacing: .5px;
 }
 
-.samaia-nav {
-  height: 86px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 30px;
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
 }
 
-.samaia-logo {
-  display: flex;
-  flex-direction: column;
+.navbar {
+    max-width: 1250px;
+    margin: auto;
+    height: 78px;
 
-  line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
 }
 
-.samaia-logo-main {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: 27px;
-  letter-spacing: 0.16em;
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -1px;
 }
 
-.samaia-logo-sub {
-  margin-top: 7px;
-
-  color: var(--gold-light);
-
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.38em;
-  text-transform: uppercase;
+.logo span {
+    color: var(--accent);
 }
 
-.samaia-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 30px;
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 600;
 }
 
-.samaia-nav-links a {
-  position: relative;
-
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-
-  opacity: 0.9;
-
-  transition:
-    color 0.25s ease;
+.nav-links a {
+    transition: .25s;
 }
 
-.samaia-nav-links a:not(.samaia-nav-book)::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: -8px;
-
-  width: 0;
-  height: 1px;
-
-  background: var(--gold-light);
-
-  transition:
-    width 0.25s ease;
+.nav-links a:hover {
+    color: var(--accent);
 }
 
-.samaia-nav-links a:hover {
-  color: var(--gold-light);
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.samaia-nav-links a:hover::after {
-  width: 100%;
+.icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f0f0ed;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 17px;
+
+    transition: .25s;
 }
 
-.samaia-nav-book {
-  padding: 13px 19px;
-
-  border:
-    1px solid
-    rgba(227, 200, 140, 0.6);
-
-  transition:
-    all 0.25s ease;
+.icon-btn:hover {
+    background: var(--black);
+    color: white;
 }
 
-.samaia-nav-book:hover {
-  background: var(--gold);
-
-  border-color: var(--gold);
-
-  color: var(--dark);
+.cart-btn {
+    position: relative;
 }
 
-.samaia-menu-toggle {
-  display: none;
+.cart-count {
+    position: absolute;
+    right: -2px;
+    top: -3px;
 
-  width: 44px;
-  height: 44px;
+    width: 18px;
+    height: 18px;
 
-  padding: 0;
+    background: var(--accent);
+    color: white;
 
-  border:
-    1px solid
-    rgba(255,255,255,0.3);
+    border-radius: 50%;
 
-  background: transparent;
+    display: grid;
+    place-items: center;
 
-  color: white;
-
-  cursor: pointer;
+    font-size: 10px;
+    font-weight: 800;
 }
 
-.samaia-menu-toggle span {
-  display: block;
-
-  width: 20px;
-  height: 1px;
-
-  margin: 5px auto;
-
-  background: currentColor;
+.mobile-menu {
+    display: none;
 }
-
 
 /* =========================================================
    HERO
-   ========================================================= */
+========================================================= */
 
-.samaia-hero {
-  position: relative;
+.hero {
+    max-width: 1250px;
+    margin: auto;
 
-  min-height: 820px;
+    min-height: 600px;
 
-  display: flex;
-  align-items: center;
+    padding: 70px 25px;
 
-  color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(27,8,13,0.95) 0%,
-      rgba(27,8,13,0.78) 42%,
-      rgba(27,8,13,0.22) 100%
-    ),
-    linear-gradient(
-      0deg,
-      rgba(20,7,10,0.7),
-      transparent 45%
-    ),
-    url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=2000&q=85")
-    center/cover no-repeat;
+    align-items: center;
 }
 
-.samaia-hero-content {
-  position: relative;
-  z-index: 2;
-
-  width: min(720px,100%);
-
-  padding:
-    150px
-    0
-    180px;
+.hero-content {
+    max-width: 570px;
 }
 
-.samaia-hero h1 {
-  max-width: 800px;
+.hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 
-  margin:
-    28px
-    0
-    25px;
+    background: #fff;
+    border: 1px solid var(--border);
 
-  font-size:
-    clamp(56px,7.5vw,105px);
+    padding: 8px 14px;
+    border-radius: 100px;
 
-  line-height: 0.94;
+    font-size: 12px;
+    font-weight: 700;
 
-  letter-spacing:
-    -0.055em;
+    margin-bottom: 25px;
 }
 
-.samaia-hero h1 em {
-  color: var(--gold-light);
-
-  font-style: italic;
+.hero-label span {
+    width: 7px;
+    height: 7px;
+    background: #26c66b;
+    border-radius: 50%;
 }
 
-.samaia-hero-text {
-  max-width: 550px;
-
-  color:
-    rgba(255,255,255,0.76);
-
-  font-size: 17px;
-
-  line-height: 1.8;
+.hero h1 {
+    font-size: clamp(48px, 6vw, 82px);
+    line-height: .95;
+    letter-spacing: -5px;
+    margin-bottom: 28px;
 }
 
-.samaia-hero-actions {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 14px;
-
-  margin-top: 36px;
+.hero h1 span {
+    color: var(--accent);
 }
 
-.samaia-btn {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  min-height: 52px;
-
-  padding:
-    0
-    28px;
-
-  border:
-    1px solid
-    transparent;
-
-  cursor: pointer;
-
-  font-size: 10px;
-  font-weight: 700;
-
-  letter-spacing:
-    0.16em;
-
-  text-transform: uppercase;
-
-  transition:
-    all 0.3s ease;
+.hero p {
+    color: var(--gray);
+    max-width: 480px;
+    font-size: 17px;
+    margin-bottom: 35px;
 }
 
-.samaia-btn-primary {
-  background: var(--gold);
-
-  color: var(--dark);
+.hero-buttons {
+    display: flex;
+    gap: 12px;
 }
 
-.samaia-btn-primary:hover {
-  background:
-    var(--gold-light);
+.btn {
+    padding: 15px 24px;
+    border-radius: 100px;
 
-  transform:
-    translateY(-2px);
+    font-size: 14px;
+    font-weight: 800;
+
+    transition: .25s;
 }
 
-.samaia-btn-outline {
-  border-color:
-    rgba(255,255,255,0.45);
-
-  background:
-    rgba(255,255,255,0.03);
-
-  color: white;
+.btn-primary {
+    background: var(--black);
+    color: white;
 }
 
-.samaia-btn-outline:hover {
-  background: white;
-
-  color: var(--dark);
+.btn-primary:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
 }
 
-.samaia-hero-bottom {
-  position: absolute;
-
-  z-index: 3;
-
-  bottom: 0;
-  left: 0;
-
-  width: 100%;
-
-  border-top:
-    1px solid
-    rgba(255,255,255,0.15);
-
-  background:
-    rgba(20,7,10,0.3);
-
-  backdrop-filter:
-    blur(8px);
+.btn-secondary {
+    background: white;
+    border: 1px solid var(--border);
 }
 
-.samaia-stats {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
+.btn-secondary:hover {
+    border-color: var(--black);
 }
 
-.samaia-stat {
-  min-height: 105px;
+/* HERO VISUAL */
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding:
-    18px
-    30px;
-
-  border-right:
-    1px solid
-    rgba(255,255,255,0.13);
+.hero-visual {
+    position: relative;
+    height: 500px;
 }
 
-.samaia-stat:last-child {
-  border-right: 0;
+.hero-card {
+    position: absolute;
+    inset: 0;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e7e7e2,
+            #cfcfc8
+        );
+
+    overflow: hidden;
 }
 
-.samaia-stat-number {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+.hero-card::before {
+    content: "";
 
-  color:
-    var(--gold-light);
+    position: absolute;
 
-  font-size: 28px;
+    width: 300px;
+    height: 300px;
+
+    background: rgba(255,255,255,.4);
+
+    border-radius: 50%;
+
+    top: -80px;
+    right: -50px;
 }
 
-.samaia-stat-label {
-  margin-top: 6px;
+.hero-product {
+    position: absolute;
 
-  color:
-    rgba(255,255,255,0.62);
+    width: 58%;
+    height: 70%;
 
-  font-size: 10px;
+    left: 21%;
+    top: 15%;
 
-  font-weight: 600;
+    border-radius: 25px;
 
-  letter-spacing:
-    0.14em;
+    background:
+        linear-gradient(
+            160deg,
+            #222,
+            #777
+        );
 
-  text-transform:
-    uppercase;
+    box-shadow:
+        30px 40px 70px rgba(0,0,0,.25);
+
+    transform: rotate(-7deg);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.hero-product::before {
+    content: "NEXORA";
+
+    color: white;
+
+    font-size: 25px;
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    transform: rotate(90deg);
+}
+
+.floating-price {
+    position: absolute;
+
+    bottom: 35px;
+    left: 30px;
+
+    background: white;
+
+    padding: 15px 20px;
+
+    border-radius: 16px;
+
+    box-shadow: var(--shadow);
+
+    font-weight: 800;
+}
+
+.floating-badge {
+    position: absolute;
+
+    top: 35px;
+    right: 30px;
+
+    width: 80px;
+    height: 80px;
+
+    background: var(--accent);
+    color: white;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    text-align: center;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    transform: rotate(10deg);
+}
 
 /* =========================================================
-   STORY
-   ========================================================= */
+   FEATURES
+========================================================= */
 
-.samaia-intro {
-  padding:
-    130px
-    0;
-
-  background:
-    var(--cream);
+.features {
+    background: var(--black);
+    color: white;
 }
 
-.samaia-intro-grid {
-  display: grid;
+.feature-grid {
+    max-width: 1250px;
+    margin: auto;
 
-  grid-template-columns:
-    0.85fr
-    1.15fr;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 
-  gap: 100px;
+    padding: 35px 25px;
 
-  align-items:
-    center;
+    gap: 25px;
 }
 
-.samaia-intro-image {
-  position: relative;
+.feature {
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
 
-.samaia-intro-image img {
-  position: relative;
+.feature-icon {
+    width: 45px;
+    height: 45px;
 
-  z-index: 1;
+    border: 1px solid #333;
 
-  display: block;
+    border-radius: 50%;
 
-  width: 100%;
-  height: 590px;
+    display: grid;
+    place-items: center;
 
-  object-fit:
-    cover;
+    font-size: 18px;
 }
 
-.samaia-intro-image::after {
-  content: "";
-
-  position: absolute;
-
-  top: 24px;
-  left: 24px;
-
-  width: 100%;
-  height: 100%;
-
-  border:
-    1px solid
-    var(--gold);
+.feature strong {
+    display: block;
+    font-size: 13px;
 }
 
-.samaia-intro-copy h2 {
-  max-width: 650px;
-
-  margin:
-    24px
-    0;
-
-  color:
-    var(--burgundy-dark);
-
-  font-size:
-    clamp(42px,5vw,70px);
-
-  line-height:
-    1.02;
+.feature span {
+    display: block;
+    color: #999;
+    font-size: 11px;
+    margin-top: 2px;
 }
-
-.samaia-intro-copy p {
-  max-width: 590px;
-
-  color:
-    var(--gray);
-
-  font-size: 16px;
-
-  line-height:
-    1.9;
-}
-
-.samaia-intro-signature {
-  margin-top: 35px;
-
-  color:
-    var(--burgundy);
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: 25px;
-
-  font-style: italic;
-}
-
 
 /* =========================================================
-   SIGNATURE DISHES
-   ========================================================= */
+   SHOP
+========================================================= */
 
-.samaia-signature {
-  padding:
-    120px
-    0;
-
-  background:
-    var(--burgundy-dark);
-
-  color:
-    white;
+.shop {
+    max-width: 1250px;
+    margin: auto;
+    padding: 100px 25px;
 }
 
-.samaia-section-heading {
-  max-width: 700px;
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
 
-  margin-bottom:
-    60px;
+    margin-bottom: 40px;
 }
 
-.samaia-section-heading h2 {
-  margin:
-    22px
-    0
-    18px;
-
-  font-size:
-    clamp(42px,5vw,68px);
-
-  line-height:
-    1.02;
+.section-heading h2 {
+    font-size: 42px;
+    letter-spacing: -2px;
 }
 
-.samaia-section-heading p {
-  max-width: 600px;
-
-  color:
-    rgba(255,255,255,0.62);
-
-  line-height:
-    1.8;
+.section-heading p {
+    color: var(--gray);
+    max-width: 380px;
 }
 
-.samaia-dishes {
-  display: grid;
+/* FILTER */
 
-  grid-template-columns:
-    repeat(3,1fr);
+.shop-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 
-  gap: 22px;
+    margin-bottom: 30px;
 }
 
-.samaia-dish {
-  position: relative;
-
-  min-height: 520px;
-
-  overflow:
-    hidden;
+.categories {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
-.samaia-dish img {
-  width: 100%;
-  height: 100%;
+.category-btn {
+    background: white;
+    border: 1px solid var(--border);
 
-  min-height: 520px;
+    padding: 10px 16px;
 
-  display: block;
+    border-radius: 100px;
 
-  object-fit:
-    cover;
+    font-size: 12px;
+    font-weight: 700;
 
-  transition:
-    transform 0.7s ease;
+    transition: .2s;
 }
 
-.samaia-dish:hover img {
-  transform:
-    scale(1.06);
+.category-btn.active,
+.category-btn:hover {
+    background: var(--black);
+    color: white;
+    border-color: var(--black);
 }
 
-.samaia-dish::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      0deg,
-      rgba(20,7,10,0.95) 0%,
-      rgba(20,7,10,0.1) 65%,
-      transparent 100%
-    );
+.search-box {
+    position: relative;
 }
 
-.samaia-dish-content {
-  position: absolute;
+.search-box input {
+    width: 220px;
 
-  z-index: 2;
+    padding: 12px 17px;
 
-  left: 28px;
-  right: 28px;
-  bottom: 28px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+
+    outline: none;
+
+    background: white;
 }
 
-.samaia-dish-tag {
-  color:
-    var(--gold-light);
-
-  font-size: 10px;
-
-  font-weight: 700;
-
-  letter-spacing:
-    0.18em;
-
-  text-transform:
-    uppercase;
+.search-box input:focus {
+    border-color: var(--black);
 }
 
-.samaia-dish h3 {
-  margin:
-    9px
-    0;
+/* PRODUCTS */
 
-  font-size:
-    31px;
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
-.samaia-dish p {
-  margin: 0;
+.product {
+    background: white;
+    border: 1px solid var(--border);
 
-  color:
-    rgba(255,255,255,0.7);
+    border-radius: var(--radius);
 
-  font-size: 13px;
+    overflow: hidden;
 
-  line-height:
-    1.6;
+    transition: .3s;
 }
 
+.product:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow);
+}
+
+.product-image {
+    position: relative;
+
+    height: 300px;
+
+    background: #e9e9e5;
+
+    overflow: hidden;
+
+    display: grid;
+    place-items: center;
+}
+
+.product-image::before {
+    content: "";
+
+    width: 145px;
+    height: 190px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #222,
+            #777
+        );
+
+    box-shadow:
+        20px 25px 35px rgba(0,0,0,.2);
+
+    transform: rotate(-8deg);
+
+    transition: .4s;
+}
+
+.product:hover .product-image::before {
+    transform: rotate(0) scale(1.05);
+}
+
+.product:nth-child(2) .product-image::before {
+    background:
+        linear-gradient(
+            145deg,
+            #d6b28d,
+            #7b5b3c
+        );
+}
+
+.product:nth-child(3) .product-image::before {
+    background:
+        linear-gradient(
+            145deg,
+            #dedede,
+            #555
+        );
+}
+
+.product:nth-child(4) .product-image::before {
+    background:
+        linear-gradient(
+            145deg,
+            #272727,
+            #aaa
+        );
+}
+
+.product:nth-child(5) .product-image::before {
+    background:
+        linear-gradient(
+            145deg,
+            #c9c0ad,
+            #655d4f
+        );
+}
+
+.product:nth-child(6) .product-image::before {
+    background:
+        linear-gradient(
+            145deg,
+            #aaa,
+            #333
+        );
+}
+
+.product:nth-child(7) .product-image::before {
+    background:
+        linear-gradient(
+            145deg,
+            #ded0c5,
+            #75665d
+        );
+}
+
+.product:nth-child(8) .product-image::before {
+    background:
+        linear-gradient(
+            145deg,
+            #222,
+            #c2c2c2
+        );
+}
+
+.sale {
+    position: absolute;
+
+    left: 15px;
+    top: 15px;
+
+    background: var(--accent);
+    color: white;
+
+    padding: 6px 10px;
+
+    border-radius: 100px;
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.wishlist {
+    position: absolute;
+
+    right: 15px;
+    top: 15px;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    display: grid;
+    place-items: center;
+
+    transition: .2s;
+}
+
+.wishlist:hover {
+    background: var(--black);
+    color: white;
+}
+
+.product-info {
+    padding: 18px;
+}
+
+.product-category {
+    color: #999;
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 6px;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: 800;
+
+    margin-bottom: 10px;
+}
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price {
+    font-weight: 900;
+}
+
+.old-price {
+    color: #aaa;
+    text-decoration: line-through;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.add-btn {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: var(--black);
+    color: white;
+
+    display: grid;
+    place-items: center;
+
+    transition: .2s;
+}
+
+.add-btn:hover {
+    background: var(--accent);
+    transform: rotate(90deg);
+}
 
 /* =========================================================
-   MENU
-   ========================================================= */
+   BANNER
+========================================================= */
 
-.samaia-menu-section {
-  padding:
-    130px
-    0;
+.banner {
+    max-width: 1200px;
+    margin: 0 auto 100px;
 
-  background:
-    var(--white);
+    min-height: 330px;
+
+    background: var(--black);
+    color: white;
+
+    border-radius: 28px;
+
+    padding: 55px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    overflow: hidden;
+
+    position: relative;
 }
 
-.samaia-menu-header {
-  display: flex;
+.banner::after {
+    content: "";
 
-  justify-content:
-    space-between;
+    position: absolute;
 
-  align-items:
-    flex-end;
+    width: 400px;
+    height: 400px;
 
-  gap: 40px;
+    border-radius: 50%;
 
-  margin-bottom:
-    45px;
+    background: var(--accent);
+
+    right: -130px;
+    bottom: -220px;
 }
 
-.samaia-menu-header h2 {
-  margin:
-    20px
-    0
-    0;
+.banner h2 {
+    font-size: 45px;
+    line-height: 1;
+    letter-spacing: -2px;
 
-  color:
-    var(--burgundy-dark);
+    max-width: 520px;
 
-  font-size:
-    clamp(44px,5vw,70px);
-
-  line-height:
-    1;
+    position: relative;
+    z-index: 2;
 }
 
-.samaia-menu-tabs {
-  display: flex;
-
-  flex-wrap:
-    wrap;
-
-  justify-content:
-    flex-end;
-
-  gap: 8px;
+.banner p {
+    color: #aaa;
+    margin-top: 18px;
+    max-width: 430px;
 }
 
-.samaia-menu-tab {
-  padding:
-    12px
-    15px;
+.banner .btn {
+    position: relative;
+    z-index: 2;
 
-  border:
-    1px solid
-    var(--border);
-
-  background:
-    transparent;
-
-  color:
-    var(--gray);
-
-  cursor:
-    pointer;
-
-  font-size:
-    9px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.09em;
-
-  text-transform:
-    uppercase;
-
-  transition:
-    all 0.25s ease;
+    background: white;
+    color: black;
 }
-
-.samaia-menu-tab:hover,
-.samaia-menu-tab.active {
-  background:
-    var(--burgundy);
-
-  border-color:
-    var(--burgundy);
-
-  color:
-    white;
-}
-
-.samaia-menu-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:
-    0
-    70px;
-
-  border-top:
-    1px solid
-    var(--border);
-}
-
-.samaia-menu-item {
-  padding:
-    28px
-    0;
-
-  border-bottom:
-    1px solid
-    var(--border);
-
-  animation:
-    samaiaMenuFade 0.35s ease;
-}
-
-@keyframes samaiaMenuFade {
-
-  from {
-    opacity: 0;
-    transform:
-      translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform:
-      translateY(0);
-  }
-
-}
-
-.samaia-menu-item.hidden {
-  display:
-    none;
-}
-
-.samaia-menu-item-top {
-  display: flex;
-
-  justify-content:
-    space-between;
-
-  gap: 20px;
-}
-
-.samaia-menu-item h3 {
-  margin: 0;
-
-  color:
-    var(--burgundy-dark);
-
-  font-size:
-    23px;
-}
-
-.samaia-menu-price {
-  color:
-    var(--burgundy);
-
-  font-size:
-    15px;
-
-  font-weight:
-    700;
-
-  white-space:
-    nowrap;
-}
-
-.samaia-menu-item p {
-  max-width:
-    520px;
-
-  margin:
-    9px
-    0
-    0;
-
-  color:
-    var(--gray);
-
-  font-size:
-    13px;
-
-  line-height:
-    1.65;
-}
-
-
-/* =========================================================
-   MENU NOTES
-   ========================================================= */
-
-.samaia-menu-notes {
-  margin-top:
-    50px;
-
-  padding:
-    30px;
-
-  border:
-    1px solid
-    var(--border);
-
-  background:
-    var(--cream);
-}
-
-.samaia-menu-notes p {
-  margin:
-    7px
-    0;
-
-  color:
-    var(--gray);
-
-  font-size:
-    12px;
-
-  line-height:
-    1.7;
-}
-
-.samaia-menu-notes strong {
-  color:
-    var(--burgundy);
-}
-
-
-/* =========================================================
-   EXPERIENCE
-   ========================================================= */
-
-.samaia-experience {
-  min-height:
-    650px;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  text-align:
-    center;
-
-  color:
-    white;
-
-  background:
-    linear-gradient(
-      rgba(49,13,21,0.78),
-      rgba(49,13,21,0.84)
-    ),
-    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85")
-    center/cover no-repeat;
-}
-
-.samaia-experience-inner {
-  max-width:
-    800px;
-
-  margin:
-    0
-    auto;
-}
-
-.samaia-experience blockquote {
-  margin:
-    30px
-    0;
-
-  font-size:
-    clamp(38px,5vw,65px);
-
-  line-height:
-    1.12;
-}
-
-.samaia-experience p {
-  color:
-    rgba(255,255,255,0.72);
-
-  line-height:
-    1.8;
-}
-
-
-/* =========================================================
-   REVIEWS
-   ========================================================= */
-
-.samaia-reviews {
-  padding:
-    130px
-    0;
-
-  background:
-    var(--cream);
-}
-
-.samaia-reviews-heading {
-  margin-bottom:
-    65px;
-
-  text-align:
-    center;
-}
-
-.samaia-reviews-heading h2 {
-  margin:
-    20px
-    0
-    15px;
-
-  color:
-    var(--burgundy-dark);
-
-  font-size:
-    clamp(42px,5vw,65px);
-}
-
-.samaia-review-rating {
-  color:
-    var(--gold);
-
-  font-size:
-    20px;
-
-  letter-spacing:
-    0.18em;
-}
-
-.samaia-review-count {
-  margin-top:
-    10px;
-
-  color:
-    var(--gray);
-
-  font-size:
-    12px;
-
-  letter-spacing:
-    0.1em;
-
-  text-transform:
-    uppercase;
-}
-
-.samaia-review-grid {
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:
-    22px;
-}
-
-.samaia-review {
-  padding:
-    38px;
-
-  background:
-    var(--white);
-
-  border:
-    1px solid
-    var(--border);
-}
-
-.samaia-review-stars {
-  color:
-    var(--gold);
-
-  letter-spacing:
-    0.15em;
-}
-
-.samaia-review p {
-  margin:
-    22px
-    0;
-
-  color:
-    #514a46;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    18px;
-
-  line-height:
-    1.65;
-}
-
-.samaia-review-author {
-  color:
-    var(--burgundy);
-
-  font-size:
-    10px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.15em;
-
-  text-transform:
-    uppercase;
-}
-
-
-/* =========================================================
-   GALLERY
-   ========================================================= */
-
-.samaia-gallery {
-  display:
-    grid;
-
-  grid-template-columns:
-    1.2fr
-    0.8fr
-    0.8fr;
-
-  grid-template-rows:
-    300px
-    300px;
-
-  gap:
-    5px;
-
-  background:
-    var(--burgundy-dark);
-}
-
-.samaia-gallery-item {
-  overflow:
-    hidden;
-}
-
-.samaia-gallery-item:first-child {
-  grid-row:
-    span 2;
-}
-
-.samaia-gallery-item img {
-  width:
-    100%;
-
-  height:
-    100%;
-
-  display:
-    block;
-
-  object-fit:
-    cover;
-
-  transition:
-    transform 0.6s ease;
-}
-
-.samaia-gallery-item:hover img {
-  transform:
-    scale(1.06);
-}
-
-
-/* =========================================================
-   RESERVATION
-   ========================================================= */
-
-.samaia-reservation {
-  padding:
-    110px
-    0;
-
-  background:
-    var(--burgundy);
-
-  color:
-    white;
-}
-
-.samaia-reservation-grid {
-  display:
-    grid;
-
-  grid-template-columns:
-    1.2fr
-    0.8fr;
-
-  gap:
-    80px;
-
-  align-items:
-    center;
-}
-
-.samaia-reservation h2 {
-  margin:
-    20px
-    0;
-
-  font-size:
-    clamp(45px,5vw,72px);
-
-  line-height:
-    1;
-}
-
-.samaia-reservation p {
-  max-width:
-    600px;
-
-  color:
-    rgba(255,255,255,0.7);
-
-  line-height:
-    1.8;
-}
-
-.samaia-reservation-info {
-  padding:
-    35px;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.2);
-
-  background:
-    rgba(0,0,0,0.08);
-}
-
-.samaia-contact-row {
-  padding:
-    18px
-    0;
-
-  border-bottom:
-    1px solid
-    rgba(255,255,255,0.15);
-}
-
-.samaia-contact-row:last-child {
-  border-bottom:
-    0;
-}
-
-.samaia-contact-label {
-  display:
-    block;
-
-  margin-bottom:
-    6px;
-
-  color:
-    var(--gold-light);
-
-  font-size:
-    9px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.16em;
-
-  text-transform:
-    uppercase;
-}
-
-.samaia-contact-value {
-  color:
-    white;
-
-  font-size:
-    15px;
-
-  line-height:
-    1.6;
-}
-
 
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
-.samaia-footer {
-  padding:
-    70px
-    0
-    30px;
+footer {
+    background: #111;
+    color: white;
 
-  background:
-    var(--burgundy-deep);
-
-  color:
-    white;
+    padding: 70px 25px 25px;
 }
 
-.samaia-footer-grid {
-  display:
-    grid;
+.footer-grid {
+    max-width: 1200px;
+    margin: auto;
 
-  grid-template-columns:
-    1.3fr
-    0.7fr
-    0.7fr;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
 
-  gap:
-    70px;
+    gap: 50px;
 
-  padding-bottom:
-    55px;
+    padding-bottom: 60px;
 }
 
-.samaia-footer-logo {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+.footer-brand p {
+    color: #888;
 
-  font-size:
-    35px;
+    max-width: 300px;
 
-  letter-spacing:
-    0.12em;
+    margin-top: 15px;
+
+    font-size: 13px;
 }
 
-.samaia-footer-brand p {
-  max-width:
-    400px;
-
-  margin-top:
-    20px;
-
-  color:
-    rgba(255,255,255,0.55);
-
-  line-height:
-    1.8;
+.footer-column h4 {
+    margin-bottom: 20px;
+    font-size: 13px;
 }
 
-.samaia-footer h4 {
-  margin:
-    0
-    0
-    20px;
+.footer-column a {
+    display: block;
 
-  color:
-    var(--gold-light);
+    color: #888;
 
-  font-size:
-    10px;
+    font-size: 13px;
 
-  letter-spacing:
-    0.16em;
+    margin-bottom: 10px;
 
-  text-transform:
-    uppercase;
+    transition: .2s;
 }
 
-.samaia-footer-links {
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  gap:
-    13px;
-
-  color:
-    rgba(255,255,255,0.65);
-
-  font-size:
-    13px;
+.footer-column a:hover {
+    color: white;
 }
 
-.samaia-footer-links a:hover {
-  color:
-    white;
+.footer-bottom {
+    max-width: 1200px;
+    margin: auto;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #292929;
+
+    color: #666;
+
+    font-size: 11px;
+
+    display: flex;
+    justify-content: space-between;
 }
-
-.samaia-footer-bottom {
-  display:
-    flex;
-
-  justify-content:
-    space-between;
-
-  gap:
-    20px;
-
-  padding-top:
-    25px;
-
-  border-top:
-    1px solid
-    rgba(255,255,255,0.12);
-
-  color:
-    rgba(255,255,255,0.4);
-
-  font-size:
-    11px;
-}
-
 
 /* =========================================================
-   RESERVATION MODAL
-   ========================================================= */
+   CART
+========================================================= */
 
-.samaia-modal {
-  position:
-    fixed;
+.cart-overlay {
+    position: fixed;
 
-  z-index:
-    999999;
+    inset: 0;
 
-  inset:
-    0;
+    background: rgba(0,0,0,.4);
 
-  display:
-    none;
+    opacity: 0;
+    visibility: hidden;
 
-  align-items:
-    center;
+    transition: .3s;
 
-  justify-content:
-    center;
-
-  padding:
-    20px;
-
-  background:
-    rgba(10,4,6,0.8);
-
-  backdrop-filter:
-    blur(8px);
+    z-index: 2000;
 }
 
-.samaia-modal.active {
-  display:
-    flex;
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
-.samaia-modal-box {
-  position:
-    relative;
+.cart {
+    position: absolute;
 
-  width:
-    min(560px,100%);
+    right: 0;
+    top: 0;
 
-  max-height:
-    90vh;
+    height: 100%;
 
-  overflow-y:
-    auto;
+    width: min(430px, 100%);
 
-  padding:
-    45px;
+    background: white;
 
-  background:
-    var(--cream);
+    padding: 25px;
 
-  color:
-    var(--dark);
+    transform: translateX(100%);
+
+    transition: .35s;
+
+    display: flex;
+    flex-direction: column;
 }
 
-.samaia-modal-close {
-  position:
-    absolute;
-
-  top:
-    16px;
-
-  right:
-    18px;
-
-  width:
-    38px;
-
-  height:
-    38px;
-
-  border:
-    0;
-
-  background:
-    transparent;
-
-  color:
-    var(--burgundy);
-
-  cursor:
-    pointer;
-
-  font-size:
-    25px;
+.cart-overlay.active .cart {
+    transform: translateX(0);
 }
 
-.samaia-modal-box h2 {
-  margin:
-    15px
-    0
-    10px;
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  color:
-    var(--burgundy-dark);
+    padding-bottom: 20px;
 
-  font-size:
-    42px;
+    border-bottom: 1px solid var(--border);
 }
 
-.samaia-modal-box > p {
-  color:
-    var(--gray);
+.close-cart {
+    width: 38px;
+    height: 38px;
 
-  font-size:
-    14px;
+    border-radius: 50%;
 
-  line-height:
-    1.7;
+    background: #f0f0ed;
 }
 
-.samaia-form {
-  display:
-    grid;
+.cart-items {
+    flex: 1;
 
-  gap:
-    15px;
+    overflow-y: auto;
 
-  margin-top:
-    28px;
+    padding: 20px 0;
 }
 
-.samaia-form-row {
-  display:
-    grid;
+.cart-item {
+    display: flex;
+    gap: 12px;
 
-  grid-template-columns:
-    1fr
-    1fr;
-
-  gap:
-    15px;
+    margin-bottom: 20px;
 }
 
-.samaia-form label {
-  display:
-    block;
+.cart-item-image {
+    width: 75px;
+    height: 75px;
 
-  margin-bottom:
-    7px;
+    background: #e6e6e2;
 
-  color:
-    var(--burgundy);
-
-  font-size:
-    10px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.1em;
-
-  text-transform:
-    uppercase;
+    border-radius: 12px;
 }
 
-.samaia-form input,
-.samaia-form select,
-.samaia-form textarea {
-  width:
-    100%;
-
-  padding:
-    14px;
-
-  border:
-    1px solid
-    var(--border);
-
-  outline:
-    none;
-
-  background:
-    white;
-
-  color:
-    var(--dark);
+.cart-item-info {
+    flex: 1;
 }
 
-.samaia-form textarea {
-  min-height:
-    90px;
-
-  resize:
-    vertical;
+.cart-item-name {
+    font-size: 13px;
+    font-weight: 800;
 }
 
-.samaia-form-message {
-  display:
-    none;
-
-  padding:
-    14px;
-
-  background:
-    rgba(101,29,43,0.08);
-
-  color:
-    var(--burgundy);
-
-  font-size:
-    13px;
-
-  line-height:
-    1.5;
+.cart-item-price {
+    font-size: 12px;
+    margin-top: 5px;
 }
 
+.quantity {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 8px;
+}
+
+.quantity button {
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: #eee;
+}
+
+.remove-item {
+    color: #999;
+    font-size: 11px;
+    margin-top: 5px;
+    background: transparent;
+}
+
+.cart-footer {
+    border-top: 1px solid var(--border);
+
+    padding-top: 20px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+
+    font-weight: 900;
+
+    margin-bottom: 18px;
+}
+
+.checkout-btn {
+    width: 100%;
+
+    background: var(--black);
+    color: white;
+
+    padding: 16px;
+
+    border-radius: 100px;
+
+    font-weight: 800;
+}
+
+.empty-cart {
+    text-align: center;
+
+    color: #999;
+
+    padding-top: 80px;
+}
 
 /* =========================================================
-   SCROLL ANIMATIONS
-   ========================================================= */
+   MODAL
+========================================================= */
 
-.samaia-reveal {
-  opacity:
-    0;
+.modal-overlay {
+    position: fixed;
 
-  transform:
-    translateY(30px);
+    inset: 0;
 
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+    background: rgba(0,0,0,.55);
+
+    z-index: 3000;
+
+    display: grid;
+    place-items: center;
+
+    padding: 20px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .3s;
 }
 
-.samaia-reveal.visible {
-  opacity:
-    1;
-
-  transform:
-    translateY(0);
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
+.modal {
+    width: min(900px, 100%);
+
+    background: white;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    transform: translateY(20px);
+
+    transition: .3s;
+}
+
+.modal-overlay.active .modal {
+    transform: translateY(0);
+}
+
+.modal-content {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+}
+
+.modal-image {
+    min-height: 500px;
+
+    background: #e8e8e4;
+
+    display: grid;
+    place-items: center;
+}
+
+.modal-image::before {
+    content: "";
+
+    width: 190px;
+    height: 280px;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        145deg,
+        #222,
+        #777
+    );
+
+    transform: rotate(-7deg);
+
+    box-shadow: 30px 30px 50px rgba(0,0,0,.2);
+}
+
+.modal-info {
+    padding: 45px;
+}
+
+.modal-info h2 {
+    font-size: 38px;
+
+    letter-spacing: -2px;
+
+    margin: 12px 0;
+}
+
+.modal-info p {
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+.modal-price {
+    font-size: 25px;
+    font-weight: 900;
+
+    margin-bottom: 30px;
+}
+
+.modal-close {
+    position: absolute;
+
+    right: 25px;
+    top: 25px;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: white;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 30px;
+
+    transform:
+        translate(-50%, 100px);
+
+    background: var(--black);
+    color: white;
+
+    padding: 13px 20px;
+
+    border-radius: 100px;
+
+    font-size: 13px;
+
+    z-index: 5000;
+
+    opacity: 0;
+
+    transition: .3s;
+}
+
+.toast.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
 
 /* =========================================================
    RESPONSIVE
-   ========================================================= */
+========================================================= */
 
-@media (max-width: 900px) {
+@media(max-width: 1000px) {
 
-  .samaia-nav-links {
-    position:
-      absolute;
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
 
-    top:
-      86px;
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-    left:
-      0;
+    .hero {
+        grid-template-columns: 1fr;
+    }
 
-    width:
-      100%;
+    .hero-content {
+        max-width: 700px;
+    }
 
-    display:
-      none;
+    .hero-visual {
+        height: 450px;
+    }
 
-    flex-direction:
-      column;
-
-    align-items:
-      stretch;
-
-    gap:
-      0;
-
-    padding:
-      10px
-      24px
-      25px;
-
-    background:
-      rgba(32,10,15,0.98);
-  }
-
-  .samaia-nav-links.open {
-    display:
-      flex;
-  }
-
-  .samaia-nav-links a {
-    padding:
-      16px
-      0;
-
-    border-bottom:
-      1px solid
-      rgba(255,255,255,0.1);
-  }
-
-  .samaia-nav-book {
-    margin-top:
-      10px;
-
-    text-align:
-      center;
-  }
-
-  .samaia-menu-toggle {
-    display:
-      block;
-  }
-
-  .samaia-intro-grid,
-  .samaia-reservation-grid {
-    grid-template-columns:
-      1fr;
-
-    gap:
-      60px;
-  }
-
-  .samaia-dishes,
-  .samaia-review-grid {
-    grid-template-columns:
-      1fr;
-  }
-
-  .samaia-dish {
-    min-height:
-      550px;
-  }
-
-  .samaia-menu-header {
-    flex-direction:
-      column;
-
-    align-items:
-      flex-start;
-  }
-
-  .samaia-menu-tabs {
-    justify-content:
-      flex-start;
-  }
-
-  .samaia-footer-grid {
-    grid-template-columns:
-      1fr
-      1fr;
-  }
-
-  .samaia-footer-brand {
-    grid-column:
-      1 / -1;
-  }
-
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
 }
 
-@media (max-width: 650px) {
+@media(max-width: 750px) {
 
-  .samaia-container {
-    width:
-      calc(100% - 32px);
-  }
+    .nav-links {
+        display: none;
+    }
 
-  .samaia-nav {
-    height:
-      72px;
-  }
+    .mobile-menu {
+        display: grid;
+    }
 
-  .samaia-nav-links {
-    top:
-      72px;
-  }
+    .hero {
+        padding-top: 50px;
+    }
 
-  .samaia-hero {
-    min-height:
-      760px;
-  }
+    .hero h1 {
+        font-size: 55px;
+    }
 
-  .samaia-hero-content {
-    padding:
-      120px
-      0
-      170px;
-  }
+    .hero-visual {
+        height: 380px;
+    }
 
-  .samaia-hero h1 {
-    font-size:
-      58px;
-  }
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-  .samaia-hero-actions {
-    flex-direction:
-      column;
+    .product-image {
+        height: 250px;
+    }
 
-    align-items:
-      stretch;
-  }
+    .section-heading {
+        display: block;
+    }
 
-  .samaia-btn {
-    width:
-      100%;
-  }
+    .section-heading h2 {
+        margin-bottom: 10px;
+    }
 
-  .samaia-stats {
-    grid-template-columns:
-      repeat(3,1fr);
-  }
+    .shop-controls {
+        display: block;
+    }
 
-  .samaia-stat {
-    min-height:
-      85px;
+    .search-box {
+        margin-top: 15px;
+    }
 
-    padding:
-      10px;
+    .search-box input {
+        width: 100%;
+    }
 
-    text-align:
-      center;
-  }
+    .banner {
+        margin: 0 15px 70px;
+        padding: 40px 30px;
+        display: block;
+    }
 
-  .samaia-stat-number {
-    font-size:
-      20px;
-  }
+    .banner h2 {
+        font-size: 36px;
+    }
 
-  .samaia-stat-label {
-    font-size:
-      7px;
+    .banner .btn {
+        margin-top: 25px;
+    }
 
-    letter-spacing:
-      0.04em;
-  }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 
-  .samaia-intro,
-  .samaia-signature,
-  .samaia-menu-section,
-  .samaia-reviews {
-    padding:
-      85px
-      0;
-  }
+    .modal-content {
+        grid-template-columns: 1fr;
+    }
 
-  .samaia-intro-image img {
-    height:
-      430px;
-  }
+    .modal-image {
+        min-height: 300px;
+    }
 
-  .samaia-intro-image::after {
-    top:
-      14px;
+    .modal-info {
+        padding: 30px;
+    }
+}
 
-    left:
-      14px;
-  }
+@media(max-width: 500px) {
 
-  .samaia-menu-grid {
-    grid-template-columns:
-      1fr;
-  }
+    .navbar {
+        padding: 0 15px;
+    }
 
-  .samaia-menu-item-top {
-    align-items:
-      flex-start;
-  }
+    .hero {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
-  .samaia-menu-item h3 {
-    font-size:
-      21px;
-  }
+    .hero h1 {
+        font-size: 45px;
+        letter-spacing: -3px;
+    }
 
-  .samaia-menu-price {
-    font-size:
-      13px;
-  }
+    .hero-buttons {
+        flex-direction: column;
+    }
 
-  .samaia-gallery {
-    grid-template-columns:
-      1fr
-      1fr;
+    .hero-buttons .btn {
+        text-align: center;
+    }
 
-    grid-template-rows:
-      250px
-      200px
-      200px;
-  }
+    .hero-visual {
+        height: 320px;
+    }
 
-  .samaia-gallery-item:first-child {
-    grid-column:
-      span 2;
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
 
-    grid-row:
-      auto;
-  }
+    .shop {
+        padding: 70px 15px;
+    }
 
-  .samaia-footer-grid {
-    grid-template-columns:
-      1fr;
-  }
+    .products {
+        gap: 10px;
+    }
 
-  .samaia-footer-brand {
-    grid-column:
-      auto;
-  }
+    .product-image {
+        height: 210px;
+    }
 
-  .samaia-footer-bottom {
-    flex-direction:
-      column;
-  }
+    .product-info {
+        padding: 13px;
+    }
 
-  .samaia-modal-box {
-    padding:
-      35px
-      22px;
-  }
+    .product-name {
+        font-size: 14px;
+    }
 
-  .samaia-form-row {
-    grid-template-columns:
-      1fr;
-  }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
 
+    .footer-bottom {
+        display: block;
+    }
 }
 
 </style>
+</head>
 
+<body>
 
-<!-- =========================================================
+<!-- ======================================================
+     TOP BAR
+====================================================== -->
+
+<div class="top-bar">
+    Free shipping on orders over $100 · Limited-time collection
+</div>
+
+<!-- ======================================================
      HEADER
-     ========================================================= -->
+====================================================== -->
 
-<header
-  class="samaia-header"
-  id="samaiaHeader"
->
+<header class="header">
 
-  <div class="samaia-container samaia-nav">
+<nav class="navbar">
 
-    <a
-      href="#samaia-home"
-      class="samaia-logo"
-    >
-
-      <span class="samaia-logo-main">
-        SAMAIA
-      </span>
-
-      <span class="samaia-logo-sub">
-        Georgian Restaurant
-      </span>
-
+    <a href="#" class="logo">
+        NEXORA<span>.</span>
     </a>
 
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
 
-    <nav
-      class="samaia-nav-links"
-      id="samaiaNavLinks"
-    >
+    <div class="nav-actions">
 
-      <a href="#samaia-home">
-        Home
-      </a>
+        <button class="icon-btn">
+            ♡
+        </button>
 
-      <a href="#samaia-story">
-        Our Story
-      </a>
+        <button
+            class="icon-btn cart-btn"
+            onclick="openCart()">
 
-      <a href="#samaia-menu">
-        Menu
-      </a>
+            🛒
 
-      <a href="#samaia-gallery">
-        Gallery
-      </a>
+            <span
+                class="cart-count"
+                id="cartCount">
+                0
+            </span>
 
-      <a href="#samaia-reviews">
-        Reviews
-      </a>
+        </button>
 
-      <a
-        href="#samaia-contact"
-        class="samaia-nav-book"
-      >
-        Book a Table
-      </a>
+        <button class="icon-btn mobile-menu">
+            ☰
+        </button>
 
-    </nav>
+    </div>
 
-
-    <button
-      class="samaia-menu-toggle"
-      id="samaiaMenuToggle"
-      type="button"
-      aria-label="Open menu"
-    >
-
-      <span></span>
-      <span></span>
-      <span></span>
-
-    </button>
-
-  </div>
+</nav>
 
 </header>
 
-
-<!-- =========================================================
+<!-- ======================================================
      HERO
-     ========================================================= -->
-
-<section
-  class="samaia-hero"
-  id="samaia-home"
->
-
-  <div class="samaia-container">
-
-    <div class="samaia-hero-content samaia-reveal">
-
-      <span class="samaia-eyebrow">
-        Authentic Georgian Cuisine
-      </span>
-
-      <h1>
-        The Taste of
-        <em>Sakartvelo</em>
-      </h1>
-
-      <p class="samaia-hero-text">
-
-        Discover the warmth, generosity and unforgettable
-        flavours of Georgian cuisine in the heart of
-        Barnes, London.
-
-        A table where traditional recipes meet
-        genuine hospitality.
-
-      </p>
-
-
-      <div class="samaia-hero-actions">
-
-        <button
-          class="samaia-btn samaia-btn-primary samaia-open-modal"
-          type="button"
-        >
-          Book a Table
-        </button>
-
-        <a
-          href="#samaia-menu"
-          class="samaia-btn samaia-btn-outline"
-        >
-          Explore Our Menu
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="samaia-hero-bottom">
-
-    <div class="samaia-container samaia-stats">
-
-      <div class="samaia-stat">
-
-        <span class="samaia-stat-number">
-          4.8 ★
-        </span>
-
-        <span class="samaia-stat-label">
-          Google Rating
-        </span>
-
-      </div>
-
-
-      <div class="samaia-stat">
-
-        <span class="samaia-stat-number">
-          838+
-        </span>
-
-        <span class="samaia-stat-label">
-          Guest Reviews
-        </span>
-
-      </div>
-
-
-      <div class="samaia-stat">
-
-        <span class="samaia-stat-number">
-          £20–60
-        </span>
-
-        <span class="samaia-stat-label">
-          Average Per Person
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     STORY
-     ========================================================= -->
-
-<section
-  class="samaia-intro"
-  id="samaia-story"
->
-
-  <div class="samaia-container samaia-intro-grid">
-
-
-    <div class="samaia-intro-image samaia-reveal">
-
-      <img
-        src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=85"
-        alt="Traditional Georgian inspired cuisine"
-        loading="lazy"
-      >
-
-    </div>
-
-
-    <div class="samaia-intro-copy samaia-reveal">
-
-      <span class="samaia-eyebrow">
-        Welcome to Samaia
-      </span>
-
-      <h2>
-        A little piece of Georgia in London.
-      </h2>
-
-      <p>
-
-        Samaia is an intimate and relaxed Georgian
-        restaurant on Castelnau, Barnes.
-
-        Our kitchen celebrates the rich flavours,
-        generous portions and timeless traditions
-        of Georgian cooking.
-
-      </p>
-
-      <p>
-
-        From freshly prepared khinkali and golden
-        khachapuri to beautifully grilled meats and
-        comforting homemade dishes, every plate is
-        made to bring people together around the table.
-
-      </p>
-
-      <div class="samaia-intro-signature">
-
-        Made with heart.
-        Served with warmth.
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     SIGNATURE DISHES
-     ========================================================= -->
-
-<section class="samaia-signature">
-
-  <div class="samaia-container">
-
-    <div class="samaia-section-heading samaia-reveal">
-
-      <span class="samaia-eyebrow">
-        From Our Kitchen
-      </span>
-
-      <h2>
-        Taste the dishes everyone talks about.
-      </h2>
-
-      <p>
-
-        Discover some of the Georgian favourites
-        that have become part of the Samaia experience.
-
-      </p>
-
-    </div>
-
-
-    <div class="samaia-dishes">
-
-
-      <article class="samaia-dish samaia-reveal">
-
-        <img
-          src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1000&q=85"
-          alt="Khinkali style Georgian dumplings"
-          loading="lazy"
-        >
-
-        <div class="samaia-dish-content">
-
-          <span class="samaia-dish-tag">
-            Georgian Classic
-          </span>
-
-          <h3>
-            Khinkali
-          </h3>
-
-          <p>
-
-            Traditional Georgian dumplings,
-            filled with rich and flavourful fillings.
-
-          </p>
+====================================================== -->
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            <span></span>
+            New collection available
+        </div>
+
+        <h1>
+            Designed for
+            <span>everyday.</span>
+        </h1>
+
+        <p>
+            Discover carefully selected products designed
+            to make everyday life simpler, smarter and
+            more beautiful.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#shop"
+                class="btn btn-primary">
+                Shop Collection →
+            </a>
+
+            <a
+                href="#about"
+                class="btn btn-secondary">
+                Explore NEXORA
+            </a>
 
         </div>
 
-      </article>
+    </div>
 
+    <div class="hero-visual">
 
-      <article class="samaia-dish samaia-reveal">
+        <div class="hero-card"></div>
 
-        <img
-          src="https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?auto=format&fit=crop&w=1000&q=85"
-          alt="Khachapuri cheese bread"
-          loading="lazy"
-        >
+        <div class="hero-product"></div>
 
-        <div class="samaia-dish-content">
-
-          <span class="samaia-dish-tag">
-            Guest Favourite
-          </span>
-
-          <h3>
-            Khachapuri
-          </h3>
-
-          <p>
-
-            Golden Georgian cheese bread,
-            baked warm and made for sharing.
-
-          </p>
-
+        <div class="floating-badge">
+            NEW<br>
+            2026
         </div>
 
-      </article>
-
-
-      <article class="samaia-dish samaia-reveal">
-
-        <img
-          src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=85"
-          alt="Grilled meat dish"
-          loading="lazy"
-        >
-
-        <div class="samaia-dish-content">
-
-          <span class="samaia-dish-tag">
-            From The Grill
-          </span>
-
-          <h3>
-            Mtsvadi
-          </h3>
-
-          <p>
-
-            Georgian-style grilled meat with
-            red onion, pomegranate and parsley.
-
-          </p>
-
+        <div class="floating-price">
+            From $49
         </div>
-
-      </article>
-
 
     </div>
 
-  </div>
+</section>
+
+<!-- ======================================================
+     FEATURES
+====================================================== -->
+
+<section class="features">
+
+<div class="feature-grid">
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            ↗
+        </div>
+
+        <div>
+            <strong>Fast Delivery</strong>
+            <span>Worldwide shipping</span>
+        </div>
+
+    </div>
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            ✓
+        </div>
+
+        <div>
+            <strong>Quality Products</strong>
+            <span>Carefully selected</span>
+        </div>
+
+    </div>
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            ♢
+        </div>
+
+        <div>
+            <strong>Secure Payment</strong>
+            <span>100% protected checkout</span>
+        </div>
+
+    </div>
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            ↺
+        </div>
+
+        <div>
+            <strong>Easy Returns</strong>
+            <span>Simple return policy</span>
+        </div>
+
+    </div>
+
+</div>
 
 </section>
 
+<!-- ======================================================
+     SHOP
+====================================================== -->
 
-<!-- =========================================================
-     COMPLETE MENU
-     ========================================================= -->
+<section class="shop" id="shop">
 
-<section
-  class="samaia-menu-section"
-  id="samaia-menu"
->
+    <div class="section-heading">
 
-  <div class="samaia-container">
+        <div>
+            <p>OUR COLLECTION</p>
+            <h2>Featured products</h2>
+        </div>
 
+        <p>
+            A curated collection of modern essentials
+            built around quality, function and design.
+        </p>
 
-    <div class="samaia-menu-header">
+    </div>
 
-      <div>
+    <div class="shop-controls">
 
-        <span class="samaia-eyebrow">
-          Explore
-        </span>
+        <div class="categories">
+
+            <button
+                class="category-btn active"
+                onclick="filterProducts('all', this)">
+                All
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="filterProducts('tech', this)">
+                Tech
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="filterProducts('lifestyle', this)">
+                Lifestyle
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="filterProducts('accessories', this)">
+                Accessories
+            </button>
+
+        </div>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                oninput="searchProducts()">
+
+        </div>
+
+    </div>
+
+    <div
+        class="products"
+        id="productGrid">
+
+        <!-- PRODUCT 1 -->
+
+        <article
+            class="product"
+            data-category="tech"
+            data-name="Nexora Smart Speaker">
+
+            <div
+                class="product-image"
+                onclick="openProduct('NEXORA Smart Speaker', 129)">
+
+                <span class="sale">
+                    NEW
+                </span>
+
+                <button
+                    class="wishlist"
+                    onclick="event.stopPropagation(); toggleWishlist(this)">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Technology
+                </div>
+
+                <div class="product-name">
+                    NEXORA Smart Speaker
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="price">
+                        $129
+                    </div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addToCart('NEXORA Smart Speaker',129)">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- PRODUCT 2 -->
+
+        <article
+            class="product"
+            data-category="lifestyle"
+            data-name="Urban Everyday Bag">
+
+            <div
+                class="product-image"
+                onclick="openProduct('Urban Everyday Bag', 89)">
+
+                <button
+                    class="wishlist"
+                    onclick="event.stopPropagation(); toggleWishlist(this)">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Lifestyle
+                </div>
+
+                <div class="product-name">
+                    Urban Everyday Bag
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="price">
+                        $89
+                    </div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addToCart('Urban Everyday Bag',89)">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- PRODUCT 3 -->
+
+        <article
+            class="product"
+            data-category="tech"
+            data-name="Nexora Wireless Headphones">
+
+            <div
+                class="product-image"
+                onclick="openProduct('NEXORA Wireless Headphones', 159)">
+
+                <span class="sale">
+                    -20%
+                </span>
+
+                <button
+                    class="wishlist"
+                    onclick="event.stopPropagation(); toggleWishlist(this)">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Technology
+                </div>
+
+                <div class="product-name">
+                    NEXORA Wireless Headphones
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="price">
+                        $159
+                        <span class="old-price">
+                            $199
+                        </span>
+                    </div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addToCart('NEXORA Wireless Headphones',159)">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- PRODUCT 4 -->
+
+        <article
+            class="product"
+            data-category="accessories"
+            data-name="Minimal Watch">
+
+            <div
+                class="product-image"
+                onclick="openProduct('Minimal Watch', 149)">
+
+                <button
+                    class="wishlist"
+                    onclick="event.stopPropagation(); toggleWishlist(this)">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Accessories
+                </div>
+
+                <div class="product-name">
+                    Minimal Watch
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="price">
+                        $149
+                    </div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addToCart('Minimal Watch',149)">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- PRODUCT 5 -->
+
+        <article
+            class="product"
+            data-category="lifestyle"
+            data-name="Premium Travel Bottle">
+
+            <div
+                class="product-image"
+                onclick="openProduct('Premium Travel Bottle', 39)">
+
+                <button
+                    class="wishlist"
+                    onclick="event.stopPropagation(); toggleWishlist(this)">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Lifestyle
+                </div>
+
+                <div class="product-name">
+                    Premium Travel Bottle
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="price">
+                        $39
+                    </div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addToCart('Premium Travel Bottle',39)">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- PRODUCT 6 -->
+
+        <article
+            class="product"
+            data-category="tech"
+            data-name="Compact Power Hub">
+
+            <div
+                class="product-image"
+                onclick="openProduct('Compact Power Hub', 69)">
+
+                <span class="sale">
+                    NEW
+                </span>
+
+                <button
+                    class="wishlist"
+                    onclick="event.stopPropagation(); toggleWishlist(this)">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Technology
+                </div>
+
+                <div class="product-name">
+                    Compact Power Hub
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="price">
+                        $69
+                    </div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addToCart('Compact Power Hub',69)">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- PRODUCT 7 -->
+
+        <article
+            class="product"
+            data-category="lifestyle"
+            data-name="Everyday Backpack">
+
+            <div
+                class="product-image"
+                onclick="openProduct('Everyday Backpack', 109)">
+
+                <button
+                    class="wishlist"
+                    onclick="event.stopPropagation(); toggleWishlist(this)">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Lifestyle
+                </div>
+
+                <div class="product-name">
+                    Everyday Backpack
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="price">
+                        $109
+                    </div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addToCart('Everyday Backpack',109)">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- PRODUCT 8 -->
+
+        <article
+            class="product"
+            data-category="accessories"
+            data-name="Nexora Metal Wallet">
+
+            <div
+                class="product-image"
+                onclick="openProduct('NEXORA Metal Wallet', 59)">
+
+                <button
+                    class="wishlist"
+                    onclick="event.stopPropagation(); toggleWishlist(this)">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Accessories
+                </div>
+
+                <div class="product-name">
+                    NEXORA Metal Wallet
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="price">
+                        $59
+                    </div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addToCart('NEXORA Metal Wallet',59)">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+     BANNER
+====================================================== -->
+
+<section class="banner" id="collection">
+
+    <div>
 
         <h2>
-          Our Menu
+            Better products.
+            Better everyday.
         </h2>
 
-      </div>
-
-
-      <div class="samaia-menu-tabs">
-
-        <button
-          class="samaia-menu-tab active"
-          data-filter="all"
-          type="button"
-        >
-          All
-        </button>
-
-        <button
-          class="samaia-menu-tab"
-          data-filter="soups"
-          type="button"
-        >
-          Soups
-        </button>
-
-        <button
-          class="samaia-menu-tab"
-          data-filter="small-plates"
-          type="button"
-        >
-          Small Plates
-        </button>
-
-        <button
-          class="samaia-menu-tab"
-          data-filter="salads"
-          type="button"
-        >
-          Salads
-        </button>
-
-        <button
-          class="samaia-menu-tab"
-          data-filter="fish"
-          type="button"
-        >
-          Fish
-        </button>
-
-        <button
-          class="samaia-menu-tab"
-          data-filter="large-plates"
-          type="button"
-        >
-          Large Plates
-        </button>
-
-        <button
-          class="samaia-menu-tab"
-          data-filter="khinkali"
-          type="button"
-        >
-          Khinkali
-        </button>
-
-        <button
-          class="samaia-menu-tab"
-          data-filter="khachapuri"
-          type="button"
-        >
-          Khachapuri
-        </button>
-
-        <button
-          class="samaia-menu-tab"
-          data-filter="accompaniments"
-          type="button"
-        >
-          Accompaniments
-        </button>
-
-        <button
-          class="samaia-menu-tab"
-          data-filter="sauces"
-          type="button"
-        >
-          Sauces
-        </button>
-
-      </div>
+        <p>
+            Discover the NEXORA collection and find
+            products designed around modern living.
+        </p>
 
     </div>
 
-
-    <div class="samaia-menu-grid">
-
-
-      <!-- SOUPS -->
-
-      <article
-        class="samaia-menu-item"
-        data-category="soups"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Borscht
-          </h3>
-
-          <span class="samaia-menu-price">
-            £10
-          </span>
-
-        </div>
-
-        <p>
-          Cabbage, beetroot, carrot, potato.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="soups"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Soup Kharcho
-          </h3>
-
-          <span class="samaia-menu-price">
-            £12
-          </span>
-
-        </div>
-
-        <p>
-          Beef short rib, tomato, red chilli, rice.
-        </p>
-
-      </article>
-
-
-      <!-- SMALL PLATES -->
-
-      <article
-        class="samaia-menu-item"
-        data-category="small-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Mini Chebureki
-          </h3>
-
-          <span class="samaia-menu-price">
-            £14
-          </span>
-
-        </div>
-
-        <p>
-          Minced beef short rib, fried pastry.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="small-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Mini Lamb Kebab
-          </h3>
-
-          <span class="samaia-menu-price">
-            £15
-          </span>
-
-        </div>
-
-        <p>
-          Lavash, satsebela.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="small-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Aubergine Pkhali
-          </h3>
-
-          <span class="samaia-menu-price">
-            £14
-          </span>
-
-        </div>
-
-        <p>
-          Walnut rolls.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="small-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Pkhali
-          </h3>
-
-          <span class="samaia-menu-price">
-            £12
-          </span>
-
-        </div>
-
-        <p>
-          Spinach, beetroot, carrot, walnut pâtés.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="small-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Red Pepper Pkhali
-          </h3>
-
-          <span class="samaia-menu-price">
-            £14
-          </span>
-
-        </div>
-
-        <p>
-          Walnut rolls.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="small-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Crispy Oyster Mushrooms
-          </h3>
-
-          <span class="samaia-menu-price">
-            £10
-          </span>
-
-        </div>
-
-        <p>
-          Kindzmari sauce.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="small-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Gebjalia
-          </h3>
-
-          <span class="samaia-menu-price">
-            £16
-          </span>
-
-        </div>
-
-        <p>
-          Soft cheese rolls, ricotta, mint.
-        </p>
-
-      </article>
-
-
-      <!-- SALADS -->
-
-      <article
-        class="samaia-menu-item"
-        data-category="salads"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Georgian Salad
-          </h3>
-
-          <span class="samaia-menu-price">
-            £16
-          </span>
-
-        </div>
-
-        <p>
-          Baby tomato, cucumber, onion, parsley,
-          kakhuri oil, gudis cheese.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="salads"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Walnut Salad
-          </h3>
-
-          <span class="samaia-menu-price">
-            £15
-          </span>
-
-        </div>
-
-        <p>
-          Plum tomato, cucumber, onion, parsley,
-          chilli, walnut, vinegar.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="salads"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Tomato Salad
-          </h3>
-
-          <span class="samaia-menu-price">
-            £15
-          </span>
-
-        </div>
-
-        <p>
-          Plum tomatoes, guruli adjika,
-          long green pepper, red onion, hazelnut.
-        </p>
-
-      </article>
-
-
-      <!-- FISH -->
-
-      <article
-        class="samaia-menu-item"
-        data-category="fish"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Seabass
-          </h3>
-
-          <span class="samaia-menu-price">
-            £24
-          </span>
-
-        </div>
-
-        <p>
-          Tarragon, lemon.
-          <br>
-          <strong>Please allow 30 minutes for this dish.</strong>
-        </p>
-
-      </article>
-
-
-      <!-- LARGE PLATES -->
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Mtsvadi — Pork
-          </h3>
-
-          <span class="samaia-menu-price">
-            £25
-          </span>
-
-        </div>
-
-        <p>
-          Red onion, pomegranate, parsley.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Mtsvadi — Chicken
-          </h3>
-
-          <span class="samaia-menu-price">
-            £25
-          </span>
-
-        </div>
-
-        <p>
-          Red onion, pomegranate, parsley.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Mtsvadi — Lamb
-          </h3>
-
-          <span class="samaia-menu-price">
-            £28
-          </span>
-
-        </div>
-
-        <p>
-          Red onion, pomegranate, parsley.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Ojakhuri — Pork
-          </h3>
-
-          <span class="samaia-menu-price">
-            £21
-          </span>
-
-        </div>
-
-        <p>
-          Fried potatoes, onion, red pepper and pomegranate.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Ojakhuri — Chicken
-          </h3>
-
-          <span class="samaia-menu-price">
-            £21
-          </span>
-
-        </div>
-
-        <p>
-          Fried potatoes, onion, red pepper and pomegranate.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Ojakhuri — Lamb
-          </h3>
-
-          <span class="samaia-menu-price">
-            £23
-          </span>
-
-        </div>
-
-        <p>
-          Fried potatoes, onion, red pepper and pomegranate.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Ojakhuri — Mushroom
-          </h3>
-
-          <span class="samaia-menu-price">
-            £19
-          </span>
-
-        </div>
-
-        <p>
-          Fried potatoes, onion, red pepper and pomegranate.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Lamb Kebab
-          </h3>
-
-          <span class="samaia-menu-price">
-            £23
-          </span>
-
-        </div>
-
-        <p>
-          Lavash, red onion, parsley,
-          pomegranate, sumac.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Corn Fed Baby Chicken Tabaka
-          </h3>
-
-          <span class="samaia-menu-price">
-            £18
-          </span>
-
-        </div>
-
-        <p>
-          Dry adjika.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Garlic Chkmeruli
-          </h3>
-
-          <span class="samaia-menu-price">
-            £18
-          </span>
-
-        </div>
-
-        <p>
-          Georgian-style chicken with garlic.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Ostri
-          </h3>
-
-          <span class="samaia-menu-price">
-            £24
-          </span>
-
-        </div>
-
-        <p>
-          Braised beef stew, tomato sauce, onion.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Lobio
-          </h3>
-
-          <span class="samaia-menu-price">
-            £14
-          </span>
-
-        </div>
-
-        <p>
-          Red kidney bean stew.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Ajapsandali
-          </h3>
-
-          <span class="samaia-menu-price">
-            £15
-          </span>
-
-        </div>
-
-        <p>
-          Aubergine, romano pepper, carrot, tomato.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Grilled Aubergine
-          </h3>
-
-          <span class="samaia-menu-price">
-            £17
-          </span>
-
-        </div>
-
-        <p>
-          Tahini matsoni, roasted garlic,
-          green adjika, pistachio, pomegranate.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="large-plates"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Chanaxi
-          </h3>
-
-          <span class="samaia-menu-price">
-            £25
-          </span>
-
-        </div>
-
-        <p>
-          Braised lamb shoulder, baby red pepper,
-          baby aubergines, new potatoes.
-        </p>
-
-      </article>
-
-
-      <!-- KHINKALI -->
-
-      <article
-        class="samaia-menu-item"
-        data-category="khinkali"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Beef Short Rib & Pork Belly
-          </h3>
-
-          <span class="samaia-menu-price">
-            £17
-          </span>
-
-        </div>
-
-        <p>
-          Traditional Georgian dumplings.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="khinkali"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Lamb Shoulder
-          </h3>
-
-          <span class="samaia-menu-price">
-            £19
-          </span>
-
-        </div>
-
-        <p>
-          Traditional Georgian dumplings.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="khinkali"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Mini Beef
-          </h3>
-
-          <span class="samaia-menu-price">
-            £16
-          </span>
-
-        </div>
-
-        <p>
-          Mixed peppercorn sauce.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="khinkali"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Mini Cheese
-          </h3>
-
-          <span class="samaia-menu-price">
-            £15
-          </span>
-
-        </div>
-
-        <p>
-          Whipped onion sauce, parmesan crisp.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="khinkali"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Mini Mushroom
-          </h3>
-
-          <span class="samaia-menu-price">
-            £20
-          </span>
-
-        </div>
-
-        <p>
-          Truffle and porcini sauce, fried shallots.
-        </p>
-
-      </article>
-
-
-      <!-- KHACHAPURI -->
-
-      <article
-        class="samaia-menu-item"
-        data-category="khachapuri"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Acharuli Classic
-          </h3>
-
-          <span class="samaia-menu-price">
-            £20
-          </span>
-
-        </div>
-
-        <p>
-          Traditional Georgian cheese bread.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="khachapuri"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Acharuli Spinach
-          </h3>
-
-          <span class="samaia-menu-price">
-            £22
-          </span>
-
-        </div>
-
-        <p>
-          Georgian cheese bread with spinach.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="khachapuri"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Acharuli Smoked Pork
-          </h3>
-
-          <span class="samaia-menu-price">
-            £24
-          </span>
-
-        </div>
-
-        <p>
-          Georgian cheese bread with smoked pork.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="khachapuri"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Megruli
-          </h3>
-
-          <span class="samaia-menu-price">
-            £18
-          </span>
-
-        </div>
-
-        <p>
-          Traditional Georgian cheese bread.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="khachapuri"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Imeruli
-          </h3>
-
-          <span class="samaia-menu-price">
-            £16
-          </span>
-
-        </div>
-
-        <p>
-          Traditional Georgian cheese bread.
-        </p>
-
-      </article>
-
-
-      <!-- ACCOMPANIMENTS -->
-
-      <article
-        class="samaia-menu-item"
-        data-category="accompaniments"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Bread
-          </h3>
-
-          <span class="samaia-menu-price">
-            £5
-          </span>
-
-        </div>
-
-        <p>
-          Served with adjika butter.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="accompaniments"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Jonjoli
-          </h3>
-
-          <span class="samaia-menu-price">
-            £7
-          </span>
-
-        </div>
-
-        <p>
-          Traditional Georgian accompaniment.
-        </p>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="accompaniments"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Chips
-          </h3>
-
-          <span class="samaia-menu-price">
-            £5
-          </span>
-
-        </div>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="accompaniments"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Mixed Pickles
-          </h3>
-
-          <span class="samaia-menu-price">
-            £4
-          </span>
-
-        </div>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="accompaniments"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            New Potatoes
-          </h3>
-
-          <span class="samaia-menu-price">
-            £6
-          </span>
-
-        </div>
-
-      </article>
-
-
-      <!-- SAUCES -->
-
-      <article
-        class="samaia-menu-item"
-        data-category="sauces"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Adjika
-          </h3>
-
-          <span class="samaia-menu-price">
-            £3.50
-          </span>
-
-        </div>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="sauces"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Satsebela
-          </h3>
-
-          <span class="samaia-menu-price">
-            £3
-          </span>
-
-        </div>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="sauces"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Tkemali
-          </h3>
-
-          <span class="samaia-menu-price">
-            £3.50
-          </span>
-
-        </div>
-
-      </article>
-
-
-      <article
-        class="samaia-menu-item"
-        data-category="sauces"
-      >
-
-        <div class="samaia-menu-item-top">
-
-          <h3>
-            Soured Cream
-          </h3>
-
-          <span class="samaia-menu-price">
-            £2
-          </span>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-
-    <!-- MENU NOTES -->
-
-    <div class="samaia-menu-notes">
-
-      <p>
-        <strong>Khinkali:</strong>
-        Dishes in this section are served as they are ready.
-        Please allow up to 30 minutes.
-        Portion of 5.
-      </p>
-
-      <p>
-        <strong>Khachapuri:</strong>
-        Dishes in this section are served as they are ready.
-        Please allow up to 30 minutes.
-      </p>
-
-      <p>
-        Please let us know if you have any allergies or intolerances.
-      </p>
-
-      <p>
-        A discretionary 12.5% service charge will be added to your bill.
-      </p>
-
-    </div>
-
-  </div>
+    <a
+        href="#shop"
+        class="btn">
+        Explore Collection →
+    </a>
 
 </section>
 
-
-<!-- =========================================================
-     EXPERIENCE
-     ========================================================= -->
-
-<section class="samaia-experience">
-
-  <div class="samaia-container">
-
-    <div class="samaia-experience-inner samaia-reveal">
-
-      <span class="samaia-eyebrow">
-        Georgian Hospitality
-      </span>
-
-      <blockquote>
-
-        "Come for the food.
-        Stay for the warmth."
-
-      </blockquote>
-
-      <p>
-
-        At Samaia, dining is about more than
-        what's on the plate.
-
-        It's about sharing, celebrating and
-        enjoying the moment with the people
-        around you.
-
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     REVIEWS
-     ========================================================= -->
+<!-- ======================================================
+     ABOUT
+====================================================== -->
 
 <section
-  class="samaia-reviews"
-  id="samaia-reviews"
->
+    class="shop"
+    id="about"
+    style="padding-top:20px">
 
-  <div class="samaia-container">
+    <div class="section-heading">
 
+        <div>
+            <p>ABOUT NEXORA</p>
 
-    <div class="samaia-reviews-heading samaia-reveal">
+            <h2>
+                Less noise.
+                Better products.
+            </h2>
 
-      <span class="samaia-eyebrow">
-        Our Guests
-      </span>
-
-      <h2>
-        Loved by our guests.
-      </h2>
-
-      <div class="samaia-review-rating">
-        ★★★★★
-      </div>
-
-      <div class="samaia-review-count">
-        4.8 out of 5 · 838 Google Reviews
-      </div>
-
-    </div>
-
-
-    <div class="samaia-review-grid">
-
-
-      <article class="samaia-review samaia-reveal">
-
-        <div class="samaia-review-stars">
-          ★★★★★
         </div>
 
         <p>
-
-          "The food is incredible and the vibes
-          are fun yet cozy. Every dish we had
-          was amazing."
-
+            NEXORA is a fictional e-commerce brand created
+            as a professional portfolio project. The concept
+            focuses on premium UI, clean product presentation
+            and a frictionless shopping experience.
         </p>
-
-        <div class="samaia-review-author">
-          — Sophie Fertel
-        </div>
-
-      </article>
-
-
-      <article class="samaia-review samaia-reveal">
-
-        <div class="samaia-review-stars">
-          ★★★★★
-        </div>
-
-        <p>
-
-          "The Khinkalis and the Khachapuri
-          were particularly amazing.
-          The staff was also very nice."
-
-        </p>
-
-        <div class="samaia-review-author">
-          — Kwinti The Explorer
-        </div>
-
-      </article>
-
-
-      <article class="samaia-review samaia-reveal">
-
-        <div class="samaia-review-stars">
-          ★★★★★
-        </div>
-
-        <p>
-
-          "The khinkali were juicy and full
-          of flavour. Cozy vibe, great food —
-          definitely coming back."
-
-        </p>
-
-        <div class="samaia-review-author">
-          — Oleg Kozlov
-        </div>
-
-      </article>
-
 
     </div>
 
-  </div>
-
 </section>
 
+</main>
 
-<!-- =========================================================
-     GALLERY
-     ========================================================= -->
-
-<section
-  class="samaia-gallery"
-  id="samaia-gallery"
->
-
-  <div class="samaia-gallery-item">
-
-    <img
-      src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1400&q=85"
-      alt="Restaurant food"
-      loading="lazy"
-    >
-
-  </div>
-
-
-  <div class="samaia-gallery-item">
-
-    <img
-      src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85"
-      alt="Traditional cuisine"
-      loading="lazy"
-    >
-
-  </div>
-
-
-  <div class="samaia-gallery-item">
-
-    <img
-      src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=1000&q=85"
-      alt="Restaurant atmosphere"
-      loading="lazy"
-    >
-
-  </div>
-
-
-  <div class="samaia-gallery-item">
-
-    <img
-      src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=85"
-      alt="Restaurant dining"
-      loading="lazy"
-    >
-
-  </div>
-
-
-  <div class="samaia-gallery-item">
-
-    <img
-      src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85"
-      alt="Restaurant interior"
-      loading="lazy"
-    >
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     RESERVATION / CONTACT
-     ========================================================= -->
-
-<section
-  class="samaia-reservation"
-  id="samaia-contact"
->
-
-  <div class="samaia-container samaia-reservation-grid">
-
-
-    <div class="samaia-reveal">
-
-      <span class="samaia-eyebrow">
-        Your Table Awaits
-      </span>
-
-      <h2>
-        Make your next meal a Georgian experience.
-      </h2>
-
-      <p>
-
-        Join us at Samaia for traditional food,
-        warm hospitality and memorable moments.
-
-      </p>
-
-      <button
-        class="samaia-btn samaia-btn-primary samaia-open-modal"
-        type="button"
-      >
-        Request a Reservation
-      </button>
-
-    </div>
-
-
-    <div class="samaia-reservation-info samaia-reveal">
-
-
-      <div class="samaia-contact-row">
-
-        <span class="samaia-contact-label">
-          Visit Us
-        </span>
-
-        <div class="samaia-contact-value">
-
-          195 Castelnau<br>
-          London SW13 9ER<br>
-          United Kingdom
-
-        </div>
-
-      </div>
-
-
-      <div class="samaia-contact-row">
-
-        <span class="samaia-contact-label">
-          Call Us
-        </span>
-
-        <div class="samaia-contact-value">
-
-          <a href="tel:+442087030858">
-
-            +44 20 8703 0858
-
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div class="samaia-contact-row">
-
-        <span class="samaia-contact-label">
-          Website
-        </span>
-
-        <div class="samaia-contact-value">
-
-          <a
-            href="https://samaiarestaurant.co.uk"
-            target="_blank"
-            rel="noopener"
-          >
-
-            samaiarestaurant.co.uk
-
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div class="samaia-contact-row">
-
-        <span class="samaia-contact-label">
-          Dining
-        </span>
-
-        <div class="samaia-contact-value">
-
-          Dine-in · Takeaway
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
+<!-- ======================================================
      FOOTER
-     ========================================================= -->
+====================================================== -->
 
-<footer class="samaia-footer">
+<footer>
 
-  <div class="samaia-container">
+<div class="footer-grid">
 
+    <div class="footer-brand">
 
-    <div class="samaia-footer-grid">
-
-
-      <div class="samaia-footer-brand">
-
-        <div class="samaia-footer-logo">
-          SAMAIA
+        <div class="logo">
+            NEXORA<span>.</span>
         </div>
 
         <p>
-
-          Authentic Georgian cuisine,
-          warm hospitality and memorable
-          moments in Barnes, London.
-
+            Modern essentials for modern living.
+            Designed with purpose.
         </p>
 
-      </div>
+    </div>
 
+    <div class="footer-column">
 
-      <div>
+        <h4>SHOP</h4>
 
-        <h4>
-          Explore
-        </h4>
-
-        <div class="samaia-footer-links">
-
-          <a href="#samaia-home">
-            Home
-          </a>
-
-          <a href="#samaia-story">
-            Our Story
-          </a>
-
-          <a href="#samaia-menu">
-            Menu
-          </a>
-
-          <a href="#samaia-gallery">
-            Gallery
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div>
-
-        <h4>
-          Visit
-        </h4>
-
-        <div class="samaia-footer-links">
-
-          <a href="tel:+442087030858">
-            +44 20 8703 0858
-          </a>
-
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=195+Castelnau+London+SW13+9ER"
-            target="_blank"
-            rel="noopener"
-          >
-            Get Directions
-          </a>
-
-          <a
-            href="https://samaiarestaurant.co.uk"
-            target="_blank"
-            rel="noopener"
-          >
-            Official Website
-          </a>
-
-        </div>
-
-      </div>
-
+        <a href="#shop">All Products</a>
+        <a href="#shop">Technology</a>
+        <a href="#shop">Lifestyle</a>
+        <a href="#shop">Accessories</a>
 
     </div>
 
+    <div class="footer-column">
 
-    <div class="samaia-footer-bottom">
+        <h4>COMPANY</h4>
 
-      <span>
-
-        ©
-        <span id="samaiaYear"></span>
-        Samaia Georgian Restaurant
-
-      </span>
-
-      <span>
-
-        The Taste of Sakartvelo
-
-      </span>
+        <a href="#about">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Journal</a>
+        <a href="#">Careers</a>
 
     </div>
 
-  </div>
+    <div class="footer-column">
+
+        <h4>SUPPORT</h4>
+
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQ</a>
+        <a href="#">Privacy</a>
+
+    </div>
+
+</div>
+
+<div class="footer-bottom">
+
+    <span>
+        © 2026 NEXORA. All rights reserved.
+    </span>
+
+    <span>
+        E-Commerce Portfolio Project
+    </span>
+
+</div>
 
 </footer>
 
-
-<!-- =========================================================
-     RESERVATION MODAL
-     ========================================================= -->
+<!-- ======================================================
+     CART
+====================================================== -->
 
 <div
-  class="samaia-modal"
-  id="samaiaModal"
-  aria-hidden="true"
->
+    class="cart-overlay"
+    id="cartOverlay"
+    onclick="closeCart(event)">
 
-  <div class="samaia-modal-box">
+    <div
+        class="cart"
+        onclick="event.stopPropagation()">
 
+        <div class="cart-header">
 
-    <button
-      class="samaia-modal-close"
-      id="samaiaModalClose"
-      type="button"
-      aria-label="Close"
-    >
-      ×
-    </button>
+            <h3>
+                Your Cart
+            </h3>
 
-
-    <span class="samaia-eyebrow">
-      Reservations
-    </span>
-
-
-    <h2>
-      Reserve Your Table
-    </h2>
-
-
-    <p>
-
-      Send us your reservation request.
-      Our team will get back to you to
-      confirm availability.
-
-    </p>
-
-
-    <form
-      class="samaia-form"
-      id="samaiaReservationForm"
-    >
-
-
-      <div class="samaia-form-row">
-
-
-        <div>
-
-          <label for="samaiaName">
-            Your Name
-          </label>
-
-          <input
-            type="text"
-            id="samaiaName"
-            required
-            placeholder="Your name"
-          >
+            <button
+                class="close-cart"
+                onclick="closeCart()">
+                ×
+            </button>
 
         </div>
 
+        <div
+            class="cart-items"
+            id="cartItems">
 
-        <div>
-
-          <label for="samaiaGuests">
-            Guests
-          </label>
-
-          <select
-            id="samaiaGuests"
-            required
-          >
-
-            <option value="">
-              Select
-            </option>
-
-            <option>
-              1 Guest
-            </option>
-
-            <option>
-              2 Guests
-            </option>
-
-            <option>
-              3 Guests
-            </option>
-
-            <option>
-              4 Guests
-            </option>
-
-            <option>
-              5 Guests
-            </option>
-
-            <option>
-              6+ Guests
-            </option>
-
-          </select>
+            <div class="empty-cart">
+                Your cart is empty.
+            </div>
 
         </div>
 
+        <div class="cart-footer">
 
-      </div>
+            <div class="cart-total">
 
+                <span>
+                    Total
+                </span>
 
-      <div class="samaia-form-row">
+                <span id="cartTotal">
+                    $0
+                </span>
 
+            </div>
 
-        <div>
+            <button
+                class="checkout-btn"
+                onclick="checkout()">
 
-          <label for="samaiaDate">
-            Date
-          </label>
+                Proceed to Checkout
 
-          <input
-            type="date"
-            id="samaiaDate"
-            required
-          >
-
-        </div>
-
-
-        <div>
-
-          <label for="samaiaTime">
-            Preferred Time
-          </label>
-
-          <input
-            type="time"
-            id="samaiaTime"
-            required
-          >
+            </button>
 
         </div>
 
-
-      </div>
-
-
-      <div>
-
-        <label for="samaiaPhone">
-          Phone Number
-        </label>
-
-        <input
-          type="tel"
-          id="samaiaPhone"
-          required
-          placeholder="+44..."
-        >
-
-      </div>
-
-
-      <div>
-
-        <label for="samaiaMessage">
-          Special Request
-        </label>
-
-        <textarea
-          id="samaiaMessage"
-          placeholder="Birthday, celebration, dietary request..."
-        ></textarea>
-
-      </div>
-
-
-      <button
-        class="samaia-btn samaia-btn-primary"
-        type="submit"
-      >
-
-        Send Reservation Request
-
-      </button>
-
-
-      <div
-        class="samaia-form-message"
-        id="samaiaFormMessage"
-      >
-
-        Thank you!
-        Your reservation request has been received.
-
-        Please call
-        +44 20 8703 0858
-        to confirm your booking.
-
-      </div>
-
-
-    </form>
-
-  </div>
+    </div>
 
 </div>
 
+<!-- ======================================================
+     PRODUCT MODAL
+====================================================== -->
 
-<!-- =========================================================
-     JAVASCRIPT
-     ========================================================= -->
+<div
+    class="modal-overlay"
+    id="productModal"
+    onclick="closeProduct(event)">
+
+    <div
+        class="modal"
+        onclick="event.stopPropagation()">
+
+        <button
+            class="modal-close"
+            onclick="closeProduct()">
+            ×
+        </button>
+
+        <div class="modal-content">
+
+            <div class="modal-image"></div>
+
+            <div class="modal-info">
+
+                <div class="product-category">
+                    NEXORA COLLECTION
+                </div>
+
+                <h2 id="modalName">
+                    Product
+                </h2>
+
+                <p>
+                    Carefully designed for modern everyday
+                    use. Premium materials, minimal design
+                    and practical functionality.
+                </p>
+
+                <div
+                    class="modal-price"
+                    id="modalPrice">
+                    $0
+                </div>
+
+                <button
+                    class="btn btn-primary"
+                    id="modalAddButton"
+                    style="width:100%">
+
+                    Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ======================================================
+     TOAST
+====================================================== -->
+
+<div
+    class="toast"
+    id="toast">
+</div>
 
 <script>
 
-(function () {
+/* =========================================================
+   CART STATE
+========================================================= */
 
-  "use strict";
+let cart = [];
+
+let currentProduct = null;
 
 
-  /* =======================================================
-     HEADER SCROLL
-     ======================================================= */
+/* =========================================================
+   CART
+========================================================= */
 
-  const header =
-    document.getElementById(
-      "samaiaHeader"
+function addToCart(name, price) {
+
+    const existing = cart.find(
+        item => item.name === name
     );
 
+    if (existing) {
 
-  function updateHeader() {
-
-    if (
-      window.scrollY > 40
-    ) {
-
-      header.classList.add(
-        "is-scrolled"
-      );
+        existing.quantity++;
 
     } else {
 
-      header.classList.remove(
-        "is-scrolled"
-      );
+        cart.push({
+            name,
+            price,
+            quantity: 1
+        });
 
     }
 
-  }
+    updateCart();
 
-
-  window.addEventListener(
-    "scroll",
-    updateHeader
-  );
-
-
-  updateHeader();
-
-
-  /* =======================================================
-     MOBILE NAVIGATION
-     ======================================================= */
-
-  const menuToggle =
-    document.getElementById(
-      "samaiaMenuToggle"
+    showToast(
+        `${name} added to cart`
     );
+}
 
 
-  const navLinks =
-    document.getElementById(
-      "samaiaNavLinks"
-    );
+function updateCart() {
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const cartCount =
+        document.getElementById("cartCount");
+
+    const cartTotal =
+        document.getElementById("cartTotal");
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                Your cart is empty.
+            </div>
+        `;
+
+        cartCount.textContent = "0";
+
+        cartTotal.textContent = "$0";
+
+        return;
+    }
+
+    let total = 0;
+    let count = 0;
+
+    cartItems.innerHTML = "";
+
+    cart.forEach((item, index) => {
+
+        total +=
+            item.price * item.quantity;
+
+        count += item.quantity;
+
+        const element =
+            document.createElement("div");
+
+        element.className =
+            "cart-item";
+
+        element.innerHTML = `
+
+            <div class="cart-item-image"></div>
+
+            <div class="cart-item-info">
+
+                <div class="cart-item-name">
+                    ${item.name}
+                </div>
+
+                <div class="cart-item-price">
+                    $${item.price}
+                </div>
+
+                <div class="quantity">
+
+                    <button
+                        onclick="changeQuantity(${index}, -1)">
+                        −
+                    </button>
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+                    <button
+                        onclick="changeQuantity(${index}, 1)">
+                        +
+                    </button>
+
+                </div>
+
+                <button
+                    class="remove-item"
+                    onclick="removeItem(${index})">
+                    Remove
+                </button>
+
+            </div>
+
+        `;
+
+        cartItems.appendChild(element);
+
+    });
+
+    cartCount.textContent = count;
+
+    cartTotal.textContent =
+        `$${total.toFixed(2)}`;
+}
 
 
-  menuToggle.addEventListener(
-    "click",
-    function () {
+function changeQuantity(index, amount) {
 
-      navLinks.classList.toggle(
-        "open"
-      );
+    cart[index].quantity += amount;
+
+    if (cart[index].quantity <= 0) {
+
+        cart.splice(index, 1);
 
     }
-  );
+
+    updateCart();
+}
 
 
-  navLinks
-    .querySelectorAll("a")
-    .forEach(
-      function (link) {
+function removeItem(index) {
 
-        link.addEventListener(
-          "click",
-          function () {
+    const removed =
+        cart[index].name;
 
-            navLinks.classList.remove(
-              "open"
+    cart.splice(index, 1);
+
+    updateCart();
+
+    showToast(
+        `${removed} removed`
+    );
+}
+
+
+/* =========================================================
+   CART OPEN / CLOSE
+========================================================= */
+
+function openCart() {
+
+    document
+        .getElementById("cartOverlay")
+        .classList.add("active");
+
+}
+
+
+function closeCart(event) {
+
+    if (
+        event &&
+        event.target !==
+        document.getElementById("cartOverlay")
+    ) {
+        return;
+    }
+
+    document
+        .getElementById("cartOverlay")
+        .classList.remove("active");
+}
+
+
+/* =========================================================
+   PRODUCT MODAL
+========================================================= */
+
+function openProduct(name, price) {
+
+    currentProduct = {
+        name,
+        price
+    };
+
+    document
+        .getElementById("modalName")
+        .textContent = name;
+
+    document
+        .getElementById("modalPrice")
+        .textContent = `$${price}`;
+
+    document
+        .getElementById("modalAddButton")
+        .onclick = function() {
+
+            addToCart(
+                currentProduct.name,
+                currentProduct.price
             );
 
-          }
+            closeProduct();
+
+        };
+
+    document
+        .getElementById("productModal")
+        .classList.add("active");
+}
+
+
+function closeProduct(event) {
+
+    if (
+        event &&
+        event.target !==
+        document.getElementById("productModal")
+    ) {
+        return;
+    }
+
+    document
+        .getElementById("productModal")
+        .classList.remove("active");
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+function filterProducts(category, button) {
+
+    document
+        .querySelectorAll(".category-btn")
+        .forEach(btn =>
+            btn.classList.remove("active")
         );
 
-      }
-    );
+    button.classList.add("active");
 
+    document
+        .querySelectorAll(".product")
+        .forEach(product => {
 
-  /* =======================================================
-     SMOOTH SCROLL
-     ======================================================= */
-
-  document
-    .querySelectorAll(
-      '.samaia-site a[href^="#"]'
-    )
-    .forEach(
-      function (anchor) {
-
-        anchor.addEventListener(
-          "click",
-          function (event) {
-
-            const targetId =
-              this.getAttribute(
-                "href"
-              );
-
+            const productCategory =
+                product.dataset.category;
 
             if (
-              targetId === "#" ||
-              !document.querySelector(
-                targetId
-              )
+                category === "all" ||
+                productCategory === category
             ) {
 
-              return;
+                product.style.display = "";
+
+            } else {
+
+                product.style.display = "none";
 
             }
 
+        });
 
-            event.preventDefault();
+}
 
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchProducts() {
+
+    const query =
+        document
+            .getElementById("searchInput")
+            .value
+            .toLowerCase();
+
+    document
+        .querySelectorAll(".product")
+        .forEach(product => {
+
+            const name =
+                product.dataset.name
+                    .toLowerCase();
+
+            if (name.includes(query)) {
+
+                product.style.display = "";
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+}
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+function toggleWishlist(button) {
+
+    if (button.textContent === "♡") {
+
+        button.textContent = "♥";
+
+        showToast("Added to wishlist");
+
+    } else {
+
+        button.textContent = "♡";
+
+        showToast("Removed from wishlist");
+
+    }
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer =
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 2200);
+
+}
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+function checkout() {
+
+    if (cart.length === 0) {
+
+        showToast(
+            "Your cart is empty"
+        );
+
+        return;
+    }
+
+    showToast(
+        "Checkout demo — connect a payment gateway"
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
 
             document
-              .querySelector(
-                targetId
-              )
-              .scrollIntoView({
+                .getElementById("cartOverlay")
+                .classList.remove("active");
 
-                behavior:
-                  "smooth",
-
-                block:
-                  "start"
-
-              });
-
-          }
-        );
-
-      }
-    );
-
-
-  /* =======================================================
-     MENU FILTER
-     ======================================================= */
-
-  const menuTabs =
-    document.querySelectorAll(
-      ".samaia-menu-tab"
-    );
-
-
-  const menuItems =
-    document.querySelectorAll(
-      ".samaia-menu-item"
-    );
-
-
-  menuTabs.forEach(
-    function (tab) {
-
-      tab.addEventListener(
-        "click",
-        function () {
-
-          const filter =
-            this.getAttribute(
-              "data-filter"
-            );
-
-
-          menuTabs.forEach(
-            function (item) {
-
-              item.classList.remove(
-                "active"
-              );
-
-            }
-          );
-
-
-          this.classList.add(
-            "active"
-          );
-
-
-          menuItems.forEach(
-            function (item) {
-
-              const category =
-                item.getAttribute(
-                  "data-category"
-                );
-
-
-              if (
-                filter === "all" ||
-                category === filter
-              ) {
-
-                item.classList.remove(
-                  "hidden"
-                );
-
-              } else {
-
-                item.classList.add(
-                  "hidden"
-                );
-
-              }
-
-            }
-          );
+            document
+                .getElementById("productModal")
+                .classList.remove("active");
 
         }
-      );
 
     }
-  );
-
-
-  /* =======================================================
-     RESERVATION MODAL
-     ======================================================= */
-
-  const modal =
-    document.getElementById(
-      "samaiaModal"
-    );
-
-
-  const modalClose =
-    document.getElementById(
-      "samaiaModalClose"
-    );
-
-
-  const openButtons =
-    document.querySelectorAll(
-      ".samaia-open-modal"
-    );
-
-
-  function openModal() {
-
-    modal.classList.add(
-      "active"
-    );
-
-
-    modal.setAttribute(
-      "aria-hidden",
-      "false"
-    );
-
-
-    document.body.style.overflow =
-      "hidden";
-
-  }
-
-
-  function closeModal() {
-
-    modal.classList.remove(
-      "active"
-    );
-
-
-    modal.setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
-
-    document.body.style.overflow =
-      "";
-
-  }
-
-
-  openButtons.forEach(
-    function (button) {
-
-      button.addEventListener(
-        "click",
-        openModal
-      );
-
-    }
-  );
-
-
-  modalClose.addEventListener(
-    "click",
-    closeModal
-  );
-
-
-  modal.addEventListener(
-    "click",
-    function (event) {
-
-      if (
-        event.target === modal
-      ) {
-
-        closeModal();
-
-      }
-
-    }
-  );
-
-
-  document.addEventListener(
-    "keydown",
-    function (event) {
-
-      if (
-        event.key === "Escape" &&
-        modal.classList.contains(
-          "active"
-        )
-      ) {
-
-        closeModal();
-
-      }
-
-    }
-  );
-
-
-  /* =======================================================
-     RESERVATION FORM DEMO
-     ======================================================= */
-
-  const reservationForm =
-    document.getElementById(
-      "samaiaReservationForm"
-    );
-
-
-  const formMessage =
-    document.getElementById(
-      "samaiaFormMessage"
-    );
-
-
-  reservationForm.addEventListener(
-    "submit",
-    function (event) {
-
-      event.preventDefault();
-
-
-      formMessage.style.display =
-        "block";
-
-
-      reservationForm.reset();
-
-    }
-  );
-
-
-  /* =======================================================
-     SCROLL REVEAL
-     ======================================================= */
-
-  const revealElements =
-    document.querySelectorAll(
-      ".samaia-reveal"
-    );
-
-
-  if (
-    "IntersectionObserver"
-    in window
-  ) {
-
-
-    const revealObserver =
-      new IntersectionObserver(
-
-        function (entries) {
-
-          entries.forEach(
-            function (entry) {
-
-              if (
-                entry.isIntersecting
-              ) {
-
-                entry.target.classList.add(
-                  "visible"
-                );
-
-
-                revealObserver.unobserve(
-                  entry.target
-                );
-
-              }
-
-            }
-          );
-
-        },
-
-        {
-          threshold:
-            0.12
-        }
-
-      );
-
-
-    revealElements.forEach(
-      function (element) {
-
-        revealObserver.observe(
-          element
-        );
-
-      }
-    );
-
-
-  } else {
-
-
-    revealElements.forEach(
-      function (element) {
-
-        element.classList.add(
-          "visible"
-        );
-
-      }
-    );
-
-
-  }
-
-
-  /* =======================================================
-     CURRENT YEAR
-     ======================================================= */
-
-  const yearElement =
-    document.getElementById(
-      "samaiaYear"
-    );
-
-
-  if (
-    yearElement
-  ) {
-
-    yearElement.textContent =
-      new Date().getFullYear();
-
-  }
-
-
-  /* =======================================================
-     RESERVATION MINIMUM DATE
-     ======================================================= */
-
-  const dateInput =
-    document.getElementById(
-      "samaiaDate"
-    );
-
-
-  if (
-    dateInput
-  ) {
-
-    const today =
-      new Date();
-
-
-    const year =
-      today.getFullYear();
-
-
-    const month =
-      String(
-        today.getMonth() + 1
-      )
-      .padStart(
-        2,
-        "0"
-      );
-
-
-    const day =
-      String(
-        today.getDate()
-      )
-      .padStart(
-        2,
-        "0"
-      );
-
-
-    dateInput.min =
-      year +
-      "-" +
-      month +
-      "-" +
-      day;
-
-  }
-
-
-})();
+);
 
 </script>
 
-</div>
+</body>
+</html>
